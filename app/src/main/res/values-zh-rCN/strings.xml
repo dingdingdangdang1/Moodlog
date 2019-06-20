@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">心情日志</string>
-    <string name="title_home">首页</string>
-    <string name="title_dashboard">鸡汤屋</string>
-    <string name="title_notifications">个人中心</string>
+    <string name="rdo_home_label">首页</string>
+    <string name="rdo_func_label">鸡汤屋</string>
+    <string name="rdo_myinfo_label">个人中心</string>
 </resources>
