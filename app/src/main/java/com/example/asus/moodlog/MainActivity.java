@@ -16,6 +16,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import static com.example.asus.moodlog.R.drawable.shape1;
+
 public class MainActivity extends FragmentActivity {
 
     private Fragment mFragments[];
@@ -30,13 +32,16 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
         mFragments = new Fragment[3];
         fragmentManager = getSupportFragmentManager();
-        mFragments[0] = fragmentManager.findFragmentById(R.id.fragment_main);
+        mFragments[0] = fragmentManager.findFragmentById(R.id.fragment_home);
         mFragments[1] = fragmentManager.findFragmentById(R.id.fragment_func);
         mFragments[2] = fragmentManager.findFragmentById(R.id.fragment_myinfo);
 
         fragmentTransaction = fragmentManager.beginTransaction().hide(mFragments[0]).hide(mFragments[1]).hide(mFragments[2]);
         fragmentTransaction.show(mFragments[0]).commit();
-        rbtHome.setBackgroundResource(R.drawable.shape2);
+        rbtHome = (RadioButton)findViewById(R.id.radioHome);
+        rbtFunc = (RadioButton)findViewById(R.id.radioFunc);
+        rbtMyinfo = (RadioButton)findViewById(R.id.radioMyinfo);
+        rbtHome.setBackgroundResource(R.drawable.shape1);
 
         radioGroup = (RadioGroup)findViewById(R.id.bottomGroup);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -48,7 +53,6 @@ public class MainActivity extends FragmentActivity {
                 rbtHome.setBackgroundResource(R.drawable.shape1);
                 rbtFunc.setBackgroundResource(R.drawable.shape1);
                 rbtMyinfo.setBackgroundResource(R.drawable.shape1);
-
                 switch(checkedId){
                     case R.id.radioHome:
                         fragmentTransaction.show(mFragments[0]).commit();

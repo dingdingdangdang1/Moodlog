@@ -8,7 +8,7 @@
     tools:context=".MainActivity" >
 
     <fragment
-        android:id="@+id/fragment_main"
+        android:id="@+id/fragment_home"
         android:name="com.example.asus.moodlog.HomeFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -32,7 +32,7 @@
         android:id="@+id/bottomGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.05"
+        android:layout_weight="0"
         android:orientation="horizontal">
 
         <RadioButton
@@ -50,7 +50,7 @@
         <RadioButton
             android:id="@+id/radioMyinfo"
             style="@style/rg_btn_style"
-            android:drawableTop="@mipmap/personal"
+            android:drawableTop="@mipmap/personal2"
             android:text="@string/rdo_myinfo_label" />
 
     </RadioGroup>
