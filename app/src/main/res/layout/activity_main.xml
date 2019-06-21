@@ -25,32 +25,32 @@
         android:id="@+id/fragment_myinfo"
         android:name="com.example.asus.moodlog.MyinfoFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="497dp"
         android:layout_weight="10" />
 
     <RadioGroup
         android:id="@+id/bottomGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.5"
+        android:layout_weight="0.05"
         android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/radioHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/rg_btn_style"
+            android:drawableTop="@mipmap/log"
             android:text="@string/rdo_home_label" />
 
         <RadioButton
             android:id="@+id/radioFunc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/rg_btn_style"
+            android:drawableTop="@mipmap/soup"
             android:text="@string/rdo_func_label" />
 
         <RadioButton
             android:id="@+id/radioMyinfo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/rg_btn_style"
+            android:drawableTop="@mipmap/personal"
             android:text="@string/rdo_myinfo_label" />
 
     </RadioGroup>

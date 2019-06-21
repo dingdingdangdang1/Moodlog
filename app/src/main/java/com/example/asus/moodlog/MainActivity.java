@@ -36,6 +36,8 @@ public class MainActivity extends FragmentActivity {
 
         fragmentTransaction = fragmentManager.beginTransaction().hide(mFragments[0]).hide(mFragments[1]).hide(mFragments[2]);
         fragmentTransaction.show(mFragments[0]).commit();
+        rbtHome.setBackgroundResource(R.drawable.shape2);
+
         radioGroup = (RadioGroup)findViewById(R.id.bottomGroup);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
@@ -43,16 +45,22 @@ public class MainActivity extends FragmentActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 Log.i("radioGroup", "checkId=" + checkedId);
                 fragmentTransaction = fragmentManager.beginTransaction().hide(mFragments[0]).hide(mFragments[1]).hide(mFragments[2]);
+                rbtHome.setBackgroundResource(R.drawable.shape1);
+                rbtFunc.setBackgroundResource(R.drawable.shape1);
+                rbtMyinfo.setBackgroundResource(R.drawable.shape1);
 
                 switch(checkedId){
                     case R.id.radioHome:
                         fragmentTransaction.show(mFragments[0]).commit();
+                        rbtHome.setBackgroundResource(R.drawable.shape2);
                         break;
                     case R.id.radioFunc:
                         fragmentTransaction.show(mFragments[1]).commit();
+                        rbtFunc.setBackgroundResource(R.drawable.shape2);
                         break;
                     case R.id.radioMyinfo:
                         fragmentTransaction.show(mFragments[2]).commit();
+                        rbtMyinfo.setBackgroundResource(R.drawable.shape2);
                         break;
                     default:
                         break;

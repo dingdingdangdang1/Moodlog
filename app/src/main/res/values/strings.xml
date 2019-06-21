@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Mood log</string>
-    <string name="rdo_home_label">Home</string>
-    <string name="rdo_func_label">Dashboard</string>
+    <string name="rdo_home_label">Log</string>
+    <string name="rdo_func_label">Soup</string>
     <string name="rdo_myinfo_label">My information</string>
 
 
