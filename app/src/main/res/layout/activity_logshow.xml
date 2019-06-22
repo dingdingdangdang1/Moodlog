@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".LogshowActivity">
 
     <ListView
@@ -11,12 +12,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
+    </ListView>
+    <TextView
         android:id="@+id/nodata"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_horizontal"
+        android:gravity="center"
         android:text="@string/nodata" />
-    </ListView>
 
 </LinearLayout>

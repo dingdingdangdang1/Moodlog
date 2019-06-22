@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".LogshowActivity" />
-        <activity android:name=".LogaddActivity"></activity>
+        <activity android:name=".LogaddActivity" />
+        <activity android:name=".LogeditActivity"></activity>
     </application>
 
 </manifest>

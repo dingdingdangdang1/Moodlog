@@ -63,7 +63,7 @@ package com.example.asus.moodlog;
                     item.setId(cursor.getInt(cursor.getColumnIndex("ID")));
                     item.setLogs(cursor.getString(cursor.getColumnIndex("LOGS")));
                     item.setTime(cursor.getString(cursor.getColumnIndex("TIME")));
-                    item.setTime(cursor.getString(cursor.getColumnIndex("LOGSTHEME")));
+                    item.setLogtheme(cursor.getString(cursor.getColumnIndex("LOGTHEME")));
 
                     logList.add(item);
                 }

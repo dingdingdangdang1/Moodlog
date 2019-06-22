@@ -8,17 +8,17 @@
     android:layout_marginTop="30dp"
     android:layout_marginRight="10dp"
     android:orientation="vertical"
-    tools:context=".LogaddActivity">
+    tools:context=".LogeditActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="主题:"
         android:textSize="15sp" />
 
     <EditText
-        android:id="@+id/theme_edt"
+        android:id="@+id/theme_edt2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -27,7 +27,7 @@
         android:inputType="text"/>
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textV2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -35,7 +35,7 @@
         android:textSize="15sp" />
 
     <EditText
-        android:id="@+id/add_log"
+        android:id="@+id/add_log2"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="145dp"
@@ -45,7 +45,7 @@
         android:inputType="text" />
 
     <TextView
-        android:id="@+id/datetext"
+        android:id="@+id/datetext2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="right"
@@ -53,11 +53,11 @@
         android:textSize="15sp" />
 
     <Button
-        android:id="@+id/btnsave"
+        android:id="@+id/btnsave2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="save"
+        android:onClick="savenew"
         android:layout_marginTop="20dp"
-        android:text="保存" />
+        android:text="确认修改" />
 
 </LinearLayout>

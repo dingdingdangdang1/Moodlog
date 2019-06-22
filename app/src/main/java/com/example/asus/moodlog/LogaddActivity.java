@@ -29,7 +29,10 @@ public class LogaddActivity extends AppCompatActivity {
         save = (Button)findViewById(R.id.btnsave);
         dateText=(TextView)findViewById(R.id.datetext);
         dateText.setText(writeDate);
+
     }
+
+
     public void save(View btn){
         Log.i(TAG, "onClick: ");
         logadd = (EditText)findViewById(R.id.add_log);

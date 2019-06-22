@@ -7,11 +7,15 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG ="MainActivity";
     private Fragment mFragments[];
     private RadioGroup radioGroup;
     private FragmentManager fragmentManager;
@@ -72,6 +76,25 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.navigation, menu);
         return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId()==R.id.menu_home){
+            //点击后的事件处理
+            //测试数据库的添加功能
+            DBManager manager=new DBManager(this);
+            manager.add(new LogItem("加油哦","2018-02-22","满足"));
+            Log.i(TAG,"写入数据库完毕");
+            //查询所有数据
+            List<LogItem> testlist=manager.listAll();
+            for(LogItem i: testlist){
+                Log.i(TAG,"取出数据主题："+i.getLogtheme()+"取出数据日期："+i.getTime());
+            }
+        }else{
+
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 
