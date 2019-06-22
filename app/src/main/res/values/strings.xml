@@ -4,6 +4,7 @@
     <string name="rdo_func_label">Soup</string>
     <string name="rdo_myinfo_label">My information</string>
     <string name="tishi">Record your mood now!</string>
+    <string name="nodata">no data</string>
 
 
 </resources>

@@ -4,16 +4,19 @@ public class LogItem {
     private int id;
     private String logs;
     private String time;
+    private String logtheme;
 
     public LogItem() {
         super();
         logs = "";
         time = "";
+        logtheme="";
     }
-    public LogItem(String logs, String time) {
+    public LogItem(String logs, String time,String logtheme) {
         super();
         this.logs = logs;
         this.time = time;
+        this.logtheme = logtheme;
     }
 
     public int getId() {
@@ -38,5 +41,12 @@ public class LogItem {
 
     public void setTime(String time) {
         this.time = time;
+    }
+    public String getLogtheme() {
+        return logtheme;
+    }
+
+    public void setLogtheme(String logtheme) {
+        this.logtheme = logtheme;
     }
 }

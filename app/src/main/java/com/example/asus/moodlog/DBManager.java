@@ -24,6 +24,7 @@ package com.example.asus.moodlog;
             ContentValues values = new ContentValues();
             values.put("logs", item.getLogs());
             values.put("time", item.getTime());
+            values.put("logtheme", item.getLogtheme());
             db.insert(TBNAME, null, values);
             db.close();
         }
@@ -46,6 +47,7 @@ package com.example.asus.moodlog;
             ContentValues values = new ContentValues();
             values.put("logs", item.getLogs());
             values.put("time", item.getTime());
+            values.put("logtheme", item.getLogtheme());
             db.update(TBNAME, values, "ID=?", new String[]{String.valueOf(item.getId())});
             db.close();
         }
@@ -61,6 +63,7 @@ package com.example.asus.moodlog;
                     item.setId(cursor.getInt(cursor.getColumnIndex("ID")));
                     item.setLogs(cursor.getString(cursor.getColumnIndex("LOGS")));
                     item.setTime(cursor.getString(cursor.getColumnIndex("TIME")));
+                    item.setTime(cursor.getString(cursor.getColumnIndex("LOGSTHEME")));
 
                     logList.add(item);
                 }
@@ -80,6 +83,7 @@ package com.example.asus.moodlog;
                 rateItem.setId(cursor.getInt(cursor.getColumnIndex("ID")));
                 rateItem.setLogs(cursor.getString(cursor.getColumnIndex("LOGS")));
                 rateItem.setTime(cursor.getString(cursor.getColumnIndex("TIME")));
+                rateItem.setTime(cursor.getString(cursor.getColumnIndex("LOGSTHEME")));
                 cursor.close();
             }
             db.close();
