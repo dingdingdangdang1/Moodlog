@@ -1,24 +1,16 @@
 package com.example.asus.moodlog;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
-import android.view.Window;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 
-import static com.example.asus.moodlog.R.drawable.shape1;
-
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends AppCompatActivity {
 
     private Fragment mFragments[];
     private RadioGroup radioGroup;
@@ -41,7 +33,7 @@ public class MainActivity extends FragmentActivity {
         rbtHome = (RadioButton)findViewById(R.id.radioHome);
         rbtFunc = (RadioButton)findViewById(R.id.radioFunc);
         rbtMyinfo = (RadioButton)findViewById(R.id.radioMyinfo);
-        rbtHome.setBackgroundResource(R.drawable.shape1);
+        rbtHome.setBackgroundResource(R.drawable.shape2);
 
         radioGroup = (RadioGroup)findViewById(R.id.bottomGroup);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -73,10 +65,14 @@ public class MainActivity extends FragmentActivity {
         });
 
 
-
     }
 
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.navigation, menu);
+        return true;
+    }
 
 
 }
