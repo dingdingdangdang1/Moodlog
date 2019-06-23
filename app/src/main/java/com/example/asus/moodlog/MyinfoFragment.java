@@ -73,6 +73,15 @@ public class MyinfoFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        btnyao.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                //在这里使用getActivity
+                Intent intent = new Intent(getActivity(),YaoMoodActivity.class);
+                startActivity(intent);
+            }
+        });
         btngrade.setOnClickListener(new View.OnClickListener() {
 
             @Override
