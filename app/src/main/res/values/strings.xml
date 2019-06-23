@@ -5,6 +5,7 @@
     <string name="rdo_myinfo_label">My information</string>
     <string name="tishi">Record your mood now!</string>
     <string name="nodata">no data</string>
+    <string name="waitText">wait</string>
 
 
 </resources>

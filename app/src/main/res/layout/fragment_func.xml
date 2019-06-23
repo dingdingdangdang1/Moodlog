@@ -8,6 +8,21 @@
     tools:context=".MainActivity">
 
 
+    <Button
+        android:id="@+id/btn_e"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="励志" />
 
+    <Button
+        android:id="@+id/btn_growth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="成长" />
 
+    <Button
+        android:id="@+id/btn_life"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="人生" />
 </LinearLayout>
