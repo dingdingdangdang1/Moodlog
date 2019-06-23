@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.asus.moodlog">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -23,7 +25,9 @@
         <activity android:name=".LogeditActivity" />
         <activity android:name=".EncourageActivity" />
         <activity android:name=".GrowthActivity" />
-        <activity android:name=".LifeActivity"></activity>
+        <activity android:name=".LifeActivity" />
+        <activity android:name=".AddInfoActivity" />
+        <activity android:name=".UpdateInfoActivity"></activity>
     </application>
 
 </manifest>
