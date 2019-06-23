@@ -1,13 +1,13 @@
 package com.example.asus.moodlog;
 
-public class myInfoItem {
+public class MyInfoItem {
     private int id;
     private String nickname;
     private String sex;
     private String qianming;
     private String xinzuo;
 
-    public myInfoItem() {
+    public MyInfoItem() {
         super();
         nickname="";
         sex = "";
@@ -15,7 +15,7 @@ public class myInfoItem {
         xinzuo="";
 
     }
-    public myInfoItem(String nickname,String sex, String qianming,String xinzuo) {
+    public MyInfoItem(String nickname, String sex, String qianming, String xinzuo) {
         super();
         this.nickname = nickname;
         this.sex = sex;
