@@ -26,7 +26,6 @@
         <activity android:name=".EncourageActivity" />
         <activity android:name=".GrowthActivity" />
         <activity android:name=".LifeActivity" />
-        <activity android:name=".AddInfoActivity" />
         <activity android:name=".UpdateInfoActivity"></activity>
     </application>
 

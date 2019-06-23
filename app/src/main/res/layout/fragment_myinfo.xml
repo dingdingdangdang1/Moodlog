@@ -47,16 +47,11 @@
         android:textSize="18sp" />
 
     <Button
-        android:id="@+id/btn_addinfo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="添加" />
-
-    <Button
         android:id="@+id/btn_udinfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:onClick="updateinfo"
         android:text="更新" />
 
     <LinearLayout
@@ -71,7 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:height="100dp"
-            android:text="Button" />
+            android:text="摇动心情" />
 
         <Button
             android:id="@+id/btn_grade"
@@ -79,7 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:height="100dp"
-            android:text="Button" />
+            android:text="我的积分" />
     </LinearLayout>
 
 

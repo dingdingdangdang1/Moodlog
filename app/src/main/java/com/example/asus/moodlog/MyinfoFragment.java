@@ -1,10 +1,13 @@
 package com.example.asus.moodlog;
 
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,45 +32,38 @@ public class MyinfoFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_myinfo, container, false);
+        //获取四个文本视图
         TextView nickname=view.findViewById(R.id.tv_nickname);
         TextView sex=view.findViewById(R.id.tv_sex);
         TextView qianming=view.findViewById(R.id.tv_qinaming);
         TextView xnizuo=view.findViewById(R.id.tv_xinzuo);
+        //引入SharedPreferences
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("myinfo", Activity.MODE_PRIVATE);
+        //申明写入信息的字符串名
+        String nicknameStr,sexStr,qianmingStr,xinzuoStr;
 
-        int i=1;
-        MyInfoManager infoManager = new MyInfoManager(getActivity());
-        myInfoItem= new MyInfoItem();
-        infoItem = infoManager.findById(i);
-        if(infoItem!=null){
-            nickname.setText("昵称："+infoItem.getNickname());
-            sex.setText("性别："+infoItem.getSex());
-            qianming.setText("签名："+infoItem.getQianming());
-            xnizuo.setText("星座："+infoItem.getXinzuo());
-        }else{
-            nickname.setText("昵称：");
-            sex.setText("性别：");
-            qianming.setText("签名：");
-            xnizuo.setText("星座：");
-        }
-        Button btnadd=(Button)view.findViewById(R.id.btn_addinfo);
+        nicknameStr = sharedPreferences.getString("nickname","");
+        sexStr = sharedPreferences.getString("sex","");
+        qianmingStr = sharedPreferences.getString("qianming","");
+        xinzuoStr = sharedPreferences.getString("xinzuo","");
+
+
+        Log.i(TAG, "onCreate: sp nicknameStr=" + nicknameStr);
+        Log.i(TAG, "onCreate: sp sexStr=" + sexStr);
+        Log.i(TAG, "onCreate: sp qianmingStr=" + qianmingStr);
+        Log.i(TAG, "onCreate: sp xinzuoStr=" + xinzuoStr);
+
+
+        nickname.setText("昵称："+nicknameStr);
+        sex.setText("性别："+sexStr);
+        qianming.setText("签名："+qianmingStr);
+        xnizuo.setText("星座："+xinzuoStr);
+
+
         Button btnupdate=(Button)view.findViewById(R.id.btn_udinfo);
         Button btnyao=(Button)view.findViewById(R.id.btn_yao);
         Button btngrade=(Button)view.findViewById(R.id.btn_grade);
-        btnadd.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-                //在这里使用getActivity
-                if(infoItem.getNickname()==""){
-                    Intent intent = new Intent(getActivity(),AddInfoActivity.class);
-                    startActivity(intent);
-                }else{
-                    Toast.makeText(getActivity(), "你已经有信息了，不能多次添加", Toast.LENGTH_SHORT).show();
-                }
-
-
-            }
-        });
         btnupdate.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -82,7 +78,7 @@ public class MyinfoFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setTitle("提示").setMessage("功能尚在完善中").setPositiveButton("确认",null).setNegativeButton("否",null);
+                builder.setTitle("提示").setMessage("功能尚在完善中").setPositiveButton("确认",null).setNegativeButton("取消",null);
                 builder.create().show();
             }
         });
