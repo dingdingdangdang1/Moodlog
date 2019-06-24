@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">心情日志</string>
-    <string name="rdo_home_label">首页</string>
+    <string name="app_name">心晴日志</string>
+    <string name="rdo_home_label">日志</string>
     <string name="rdo_func_label">鸡汤屋</string>
     <string name="rdo_myinfo_label">个人中心</string>
     <string name="tishi">现在记录你的心情吧！</string>
