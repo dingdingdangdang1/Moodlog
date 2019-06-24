@@ -89,5 +89,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:onClick="updateinfo"
+        android:background="@color/colorAccent"
         android:text="更新" />
 </LinearLayout>

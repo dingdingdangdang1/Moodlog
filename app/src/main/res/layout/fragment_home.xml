@@ -11,11 +11,22 @@
         android:id="@+id/btn_show"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:height="80dp"
+        android:background="@color/colorAccent"
+        android:drawableTop="@mipmap/loglook"
         android:text="查看日志" />
 
     <Button
         android:id="@+id/btn_add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:height="80dp"
+        android:background="@color/colorAccent"
+        android:drawableTop="@mipmap/lognew"
         android:text="新建日志" />
 </LinearLayout>

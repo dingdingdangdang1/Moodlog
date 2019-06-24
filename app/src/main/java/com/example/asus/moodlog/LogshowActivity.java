@@ -6,6 +6,8 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -53,6 +55,22 @@ public class LogshowActivity extends AppCompatActivity implements AdapterView.On
                 new int[] { R.id.logTheme, R.id.logDate }
         );
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.newlog,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId()==R.id.newlog){
+            //点击后的事件处理，可填入打开新建日志页面的代码
+            Intent intent = new Intent(this,LogaddActivity.class);
+            startActivity(intent);
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -76,6 +94,7 @@ public class LogshowActivity extends AppCompatActivity implements AdapterView.On
         editTrac.putExtra("title",titleStr);
         editTrac.putExtra("detail",detailStr);
         editTrac.putExtra("IdStr",IdStr);
+        listItemAdapter.notifyDataSetChanged();
       //  editTrac.putExtra("time",timeStr);
         startActivity(editTrac);
 
@@ -91,6 +110,11 @@ public class LogshowActivity extends AppCompatActivity implements AdapterView.On
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Log.i(TAG, "onClick: 对话框事件处理");
+                //listItems.remove(position);
+                HashMap<String,String> map = (HashMap<String, String>) listView.getItemAtPosition(position);
+                String IdStr = map.get("ItemId");
+                DBManager dbManager = new DBManager(LogshowActivity.this);//从数据库中删除
+                dbManager.delete(Integer.parseInt(IdStr));
                 listItems.remove(position);
                 listItemAdapter.notifyDataSetChanged();
             }

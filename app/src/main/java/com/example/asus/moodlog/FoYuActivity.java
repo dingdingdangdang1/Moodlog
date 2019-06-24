@@ -5,8 +5,6 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -20,9 +18,8 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
-public class EncourageActivity extends AppCompatActivity implements  Runnable{
+public class FoYuActivity extends AppCompatActivity implements  Runnable{
     private static final String TAG ="EncourageActivity" ;
     private ArrayList<HashMap<String, String>> soupList; // 存放文字、图片信息
     private SimpleAdapter listItemAdapter; // 适配器
@@ -33,7 +30,7 @@ public class EncourageActivity extends AppCompatActivity implements  Runnable{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_encourage);
+        setContentView(R.layout.activity_fu_yu);
         TextView noda2=findViewById(R.id.nodata2);
         listView=findViewById(R.id.soup_list);
         listView.setEmptyView(noda2);
@@ -44,7 +41,7 @@ public class EncourageActivity extends AppCompatActivity implements  Runnable{
             public void handleMessage(Message msg) {
                 if(msg.what == msgWhat){
                     soupList = (ArrayList<HashMap<String, String>>) msg.obj;
-                    listItemAdapter = new SimpleAdapter(EncourageActivity.this, soupList, // listItems数据源
+                    listItemAdapter = new SimpleAdapter(FoYuActivity.this, soupList, // listItems数据源
                             R.layout.souplistf, // ListItem的XML布局实现
                             new String[] { "ItemTitle", "ItemDetail" },
                             new int[] { R.id.soup_detail, R.id.soup_rsc });
@@ -66,21 +63,43 @@ public class EncourageActivity extends AppCompatActivity implements  Runnable{
         ArrayList<HashMap<String,String>> relist=new ArrayList<HashMap<String,String>>();
 
         try {
-            Document doc = Jsoup.connect("https://www.juzimi.com/tags/%E5%8A%B1%E5%BF%97").get();
-            Elements soup = doc.select("div.views-field-phpcode");
-            for (Element element : soup) {//遍历数组
+
+            Document doc = Jsoup.connect("http://www.rs66.com/foxuechanyu/").get();
+            Elements rep = doc.select("div.listbox").select("ul");
+            Element soup1= rep.get(0);
+            Element soup2= rep.get(1);
+            Elements soup1_ui=soup1.select("li");
+            Elements soup2_ui=soup2.select("li");
+            for (Element element : soup1_ui) {//遍历数组
+
                 HashMap<String, String> map = new HashMap<String, String>();
 
 
-                String tdStr =element.select("a.xlistju").text();//查找element下的a标签鸡汤的内容
-                String author=element.select("a.views-field-field-oriwriter-value").text();
-                String book=element.select("a.active").text();
+                String tdStr =element.select("a.ltitle").text();//查找element下的a标签鸡汤的内容
+                String intro=element.select("p.intro").text();
                 //查找出处的内容
-                String pStr ="——"+author+"《"+book+"》";
+
+                    map.put("ItemTitle", tdStr);
+                    map.put("ItemDetail", intro);//将出处组合起来放入map中
+                    relist.add(map);
+                    Log.i("鸡汤",tdStr + "详情" + intro);
+
+
+            }
+            for (Element element : soup2_ui) {//遍历数组
+
+                HashMap<String, String> map = new HashMap<String, String>();
+
+
+                String tdStr =element.select("a.ltitle").text();//查找element下的a标签鸡汤的内容
+                String intro=element.select("p.intro").text();
+                //查找出处的内容
+
                 map.put("ItemTitle", tdStr);
-                map.put("ItemDetail", pStr);//将出处组合起来放入map中
+                map.put("ItemDetail", intro);//将出处组合起来放入map中
                 relist.add(map);
-                Log.i("鸡汤",tdStr + "出处" + pStr);
+                Log.i("鸡汤",tdStr + "详情" + intro);
+
 
             }
             marker = true;

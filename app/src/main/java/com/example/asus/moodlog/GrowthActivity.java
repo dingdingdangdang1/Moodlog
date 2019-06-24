@@ -63,22 +63,46 @@ public class GrowthActivity extends AppCompatActivity implements  Runnable {
         ArrayList<HashMap<String,String>> relist=new ArrayList<HashMap<String,String>>();
 
         try {
-            Document doc = Jsoup.connect("https://www.juzimi.com/tags/%E6%88%90%E9%95%BF.header(\"User-Agent\",\"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.111 Safari/537.36\")").get();
-            Elements soup = doc.select("div.views-field-phpcode");
-            for (Element element : soup) {//遍历数组
+            Document doc = Jsoup.connect("http://www.rs66.com/xinlingganwu/").get();
+            Elements rep = doc.select("div.listbox").select("ul");
+            Element soup1= rep.get(0);
+            Element soup2= rep.get(1);
+            Elements soup1_ui=soup1.select("li");
+            Elements soup2_ui=soup2.select("li");
+            for (Element element : soup1_ui) {//遍历数组
+
                 HashMap<String, String> map = new HashMap<String, String>();
 
-                String tdStr =element.select("a.xlistju").text();//查找element下的a标签鸡汤的内容
-                String author=element.select("a.views-field-field-oriwriter-value").text();
-                String book=element.select("a.active").text();
+
+                String tdStr =element.select("a.ltitle").text();//查找element下的a标签鸡汤的内容
+                String intro=element.select("p.intro").text();
                 //查找出处的内容
-                String pStr ="——"+author+"《"+book+"》";
+
                 map.put("ItemTitle", tdStr);
-                map.put("ItemDetail", pStr);//将出处组合起来放入map中
+                map.put("ItemDetail", intro);//将出处组合起来放入map中
                 relist.add(map);
-                Log.i("鸡汤",tdStr + "出处" + pStr);
+                Log.i("鸡汤",tdStr + "详情" + intro);
+
 
             }
+            for (Element element : soup2_ui) {//遍历数组
+
+                HashMap<String, String> map = new HashMap<String, String>();
+
+
+                String tdStr =element.select("a.ltitle").text();//查找element下的a标签鸡汤的内容
+                String intro=element.select("p.intro").text();
+                //查找出处的内容
+
+                map.put("ItemTitle", tdStr);
+                map.put("ItemDetail", intro);//将出处组合起来放入map中
+                relist.add(map);
+                Log.i("鸡汤",tdStr + "详情" + intro);
+
+
+            }
+
+
             marker = true;
         } catch (MalformedURLException e) {
             Log.e("www", e.toString());

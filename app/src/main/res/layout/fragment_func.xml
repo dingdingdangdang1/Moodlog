@@ -4,25 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="20dp"
     android:orientation="vertical"
     tools:context=".MainActivity">
-
-
-    <Button
-        android:id="@+id/btn_e"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="励志" />
-
-    <Button
-        android:id="@+id/btn_growth"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="成长" />
 
     <Button
         android:id="@+id/btn_life"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="人生" />
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:height="80dp"
+        android:background="@color/colorAccent"
+        android:drawableTop="@mipmap/chengz"
+        android:text="人生鸡汤" />
+
+    <Button
+        android:id="@+id/btn_e"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:height="80dp"
+        android:background="@color/colorAccent"
+        android:drawableTop="@mipmap/noodles"
+        android:text="禅语鸡汤" />
+
+    <Button
+        android:id="@+id/btn_growth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:height="80dp"
+        android:background="@color/colorAccent"
+        android:drawableTop="@mipmap/soupl"
+        android:text="成长鸡汤" />
+
+
 </LinearLayout>

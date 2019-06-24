@@ -34,7 +34,7 @@ public class FuncFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //在这里使用getActivity
-                Intent intent = new Intent(getActivity(),EncourageActivity.class);
+                Intent intent = new Intent(getActivity(),FoYuActivity.class);
                 startActivity(intent);
             }
         });

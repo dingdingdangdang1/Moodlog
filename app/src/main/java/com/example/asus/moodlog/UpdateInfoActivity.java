@@ -44,7 +44,7 @@ public class UpdateInfoActivity extends AppCompatActivity {
         xinzuo.setText(xinzuoStr);
         if(sexStr.equals("女")){
             btnfemale.setChecked(true);
-        }else {
+        }else if(sexStr.equals("男")) {
             btnmale.setChecked(true);
         }
 
@@ -87,7 +87,7 @@ public class UpdateInfoActivity extends AppCompatActivity {
             editor.putString("xinzuo",xinzuoStr);
             editor.commit();
 
-            Log.i(TAG, "onActivityResult: 数据已保存到sharedPreferences");
+            Log.i(TAG, "数据已保存到sharedPreferences");
             Toast.makeText(this, "更新成功", Toast.LENGTH_SHORT).show();
         }else{
             //用户没有输入内容
